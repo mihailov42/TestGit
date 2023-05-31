@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+}
+
+.p_cart{
+    border: 2px solid skyblue;
+    border-radius: 5%;
+}

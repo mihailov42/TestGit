@@ -1,4 +1,8 @@
-a {
+a{
     text-decoration: none;
-    color: brown;
+    color: white;
+}
+.a{
+    text-decoration: none;
+    color: black;
 }

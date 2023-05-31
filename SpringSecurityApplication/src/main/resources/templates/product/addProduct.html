@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Добавление товара</title>
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Добавление товара</title>
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+          crossorigin="anonymous"
+        />
+        <link th:href="@{/css/addProduct.css}" type="text/css" rel="stylesheet" />
+      </head>
 <body>
-<h3>Добавление товара</h3>
-<form th:method="POST" th:action="@{/admin/product/add}" th:object="${product}" enctype="multipart/form-data">
-    <label for="title">Введите наименование товара:</label>
+    <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="text-center text-uppercase my-3">Добавление товара</h1>
+          </div>
+        </div>
+        <div class="row align-items-center justify-content-center">
+            <div class="a_form col-lg-9 col-sm-12 align-items-center justify-content-center text-center">
+    <form th:method="POST" th:action="@{/admin/product/add}" th:object="${product}" enctype="multipart/form-data">
+    <label class="m-2" for="title">Введите наименование товара:</label>
     <input type="text" th:field="*{title}" placeholder="Наименование" id="title">
     <div style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
     <br>
-    <label for="description">Введите описание товара:</label>
+    <label class="m-2" for="description">Введите описание товара:</label>
     <textarea th:field="*{description}" placeholder="Описание" id="description"></textarea>
     <div style="color: red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
     <br>
-    <label for="price">Введите цену товара</label>
+    <label class="m-2" for="price">Введите цену товара</label>
     <input type="number" th:field="*{price}" min="1" step="0.00" placeholder="Цена" id="price">
     <div style="color: red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
     <br>
-    <label for="warehouse">Введите склад на котором расположен товар</label>
+    <label class="m-2" for="warehouse">Введите склад на котором расположен товар</label>
     <input type="text" th:field="*{warehouse}" placeholder="Склад" id="warehouse">
     <div style="color: red" th:if="${#fields.hasErrors('warehouse')}" th:errors="*{warehouse}"></div>
     <br>
-    <label for="category">Выберите категорию товара</label>
+    <label class="m-2" for="category">Выберите категорию товара</label>
     <select name="category" th:fiesd="*{category}" id="category">
         <div th:each="element : ${category}">
             <option th:text="${element.getName()}" th:value="${element.getId()}">
@@ -36,13 +52,20 @@
     <div style="color: red" th:if="${#fields.hasErrors('seller')}" th:errors="*{seller}"></div>
     <br>
     <p style="color: red">Вы можете добавить до 5 фотографий. Первая фотография не может быть пустой т.к они будет являтся главной при выводе карточки товара</p>
-    <input type="file" name="file_one">
-    <input type="file" name="file_two">
-    <input type="file" name="file_three">
-    <input type="file" name="file_four">
-    <input type="file" name="file_five">
+    <input  class="my-3" type="file" name="file_one">
+    <input  class="my-3" type="file" name="file_two">
+    <input  class="my-3" type="file" name="file_three">
+    <input class="my-3" type="file" name="file_four">
+    <input class="my-3" type="file" name="file_five">
     <br>
-    <input type="submit" value="Добавить">
+    
+    <input class="btn btn-primary my-3" type="submit" value="Добавить">
+
+</div>
+</div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
 </form>
 </body>
 </html>
